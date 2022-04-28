@@ -1,5 +1,5 @@
 <!-- this line of code will import the content of base.html into book.html -->
-{% extends "base.html"%}
+{% extends "adoption/base.html"%}
 
 <!-- when I add my block content for books.html template , I  need to go to views and render this template over there -->
 {%block content%}
@@ -10,4 +10,5 @@
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
   dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
   book.</p>
+  <br>
 {%endblock content%}

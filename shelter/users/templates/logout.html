@@ -1,0 +1,11 @@
+<!-- this line of code will import the content of base.html into home.html -->
+{% extends "base.html"%}
+
+<!-- => when I add my block content for registration.html template , I  need to go to views and render this template over there -->
+
+<!-- => for the login or logout , I can skip adding them to the views and  add them to the urls patterns in shelter/setting.py becasue we are leveraging django login and logout  -->
+{%block content%}
+
+ <div>Goodbye! Visit us again soon</div>
+
+{%endblock content%}

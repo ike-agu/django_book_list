@@ -5,6 +5,7 @@
 
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -14,18 +15,22 @@ books = [
     {'id': 3, 'title': 'The No. 1 Ladies\' Detective Agency', 'author': 'Alexander McCall Smith'}
 ]
 
-# anytime you create methods in view, you need  to go create the url in urls.py
+# => anytime I create methods in view,  I need  to go create the url in urls.py
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'adoption/home.html')
+
 
 def show(request, id):
     book = list(filter(lambda book:book['id'] == id, books))
     data =  {'book':book[0]['id']}
-    return render(request, 'show.html', data)
+    return render(request, 'adoption/show.html', data)
+
 
 def books(request):
     data  = {'books': books}
-    return render(request, 'books.html', data)
+    return render(request, 'adoption/books.html', data)
 
+
+# @login_required
 def authors(request):
-    return render(request, 'author.html')
+    return render(request, 'adoption/author.html')

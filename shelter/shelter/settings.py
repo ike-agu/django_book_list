@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'adoption.apps.AdoptionConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +123,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_REDIRECT_URL = 'adoption-home'
+
+# => Ikenna wrote we need this too protect our urls for what we don't want users to see if they are not logged in. each time they want to access a page with LOGIN_URL it will redirect them to login page.
+LOGIN_URL = 'login'
