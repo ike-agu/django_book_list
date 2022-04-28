@@ -1,8 +1,10 @@
-# we can use django.http or django.shortcuts to import HttpResponse
+# we can use django.http or django.shortcuts to import HttpResponse, render etc
 # - django shortscuts is a collection of helper function that are generally used in view function/classes. there are many shortcuts available in module django shortcuts
 # => from django.http import HttpResponse
 
+
 from django.shortcuts import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
@@ -14,16 +16,16 @@ books = [
 
 # anytime you create methods in view, you need  to go create the url in urls.py
 def home(request):
-    return HttpResponse("<h1>List of book to view </h1>"
-    f"<h3>The books in our list are {len(books)} in total </h3>"
-    )
+    return render(request, 'home.html')
 
 def show(request, id):
     book = list(filter(lambda book:book['id'] == id, books))
-    return HttpResponse(
-        f"<h3>This page is for book number with id {id}</h3>"
-        f"<p>The book  name is {book[0]['title']}.</p>"
-    )
+    data =  {'book':book[0]['id']}
+    return render(request, 'show.html', data)
+
+def books(request):
+    data  = {'books': books}
+    return render(request, 'books.html', data)
 
 def authors(request):
-    return HttpResponse(f"<h1>List of Book authors</h1>")
+    return render(request, 'author.html')

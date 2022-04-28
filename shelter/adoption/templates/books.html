@@ -1,0 +1,18 @@
+<!-- this line of code will import the content of base.html into home.html -->
+{% extends "base.html"%}
+
+<!-- when I add my block content for books.html template , I  need to go to views and render this template over there -->
+{%block content%}
+  <h1>welcome to the book list app </h1>
+  <h3>All Your books will be displayed here </h3>
+
+  <!-- we now goin to loop through our book to get all the books by title -->
+  <ul>
+    {% for book in books %}
+    <li>
+      <!-- below we are saying for every book in books, grab their id and list them by title -->
+      <a href="{% url 'adoption-show' id=book.id%}">{{book.title}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+{%endblock content%}

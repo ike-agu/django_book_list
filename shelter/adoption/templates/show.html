@@ -1,0 +1,9 @@
+<!-- this line of code will import the content of base.html into show.html -->
+{% extends "base.html"%}
+
+<!-- when I add my block content for show.html template , I  need to go to views and render this template over there -->
+{%block content%}
+  <h1>{{book.title}}</h1>
+  <p>{{book.author}}</p>
+  <h3>this book was written by {{book.author}} </h3>
+{%endblock content%}

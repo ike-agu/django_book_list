@@ -1,4 +1,4 @@
-<!-- the load static at the top is to allow us inlude dynamic html. this should alway be at the top of my base.html in all projects .  -->
+<!-- the load static at the top is to allow us inlude dynamic html. this should always be at the top of my base.html in all projects.  -->
 {%load static%}
 
 <!DOCTYPE html>
@@ -13,14 +13,14 @@
 
   <!-- this below nav will be included in all my views. views are simply pages the user sees -->
   <nav>
-    <a href="{%url adoption-home%}">Home</a>
-    <a href="{%url adoption-show%}">Books</a>
-    <a href="{%url adoption-authors%}">Authors</a>
+    <a href="{%url 'adoption-home'%}">Home</a>
+    <a href="{% url 'adoption-books'%}">Books</a>
+    <a href="{% url 'adoption-authors'%}">Authors</a>
   </nav>
 
   <main>
-    {%block content%}
-    {%endblock content%}
+    {% block content%}
+    {% endblock content%}
   </main>
 
 </body>
